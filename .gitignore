@@ -59,3 +59,9 @@ typings/
 
 # next.js build output
 .next
+
+#typescript compiled files
+dist
+
+#vscode config files
+.vscode
