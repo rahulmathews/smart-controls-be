@@ -3,14 +3,44 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "prestart": "npm run build",
+    "start": "node .",
+    "test": "mocha \"dist/test/**/*.js\""
   },
   "dependencies": {
+    "@types/bcrypt": "^3.0.0",
+    "@types/dotenv": "^6.1.1",
+    "@types/express": "^4.17.1",
+    "@types/helmet": "0.0.44",
+    "@types/http-errors": "^1.6.2",
+    "@types/lodash": "^4.14.139",
+    "@types/moment": "^2.13.0",
+    "@types/mongoose": "^5.5.18",
+    "@types/mongoose-paginate": "^5.0.6",
+    "@types/morgan": "^1.7.37",
+    "@types/passport": "^1.0.1",
+    "@types/passport-jwt": "^3.0.2",
+    "@types/passport-local": "^1.0.33",
+    "@types/redis": "^2.8.13",
+    "@types/uuid": "^3.4.5",
+    "bcrypt": "^3.0.6",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
-    "express": "~4.16.1",
-    "http-errors": "~1.6.3",
+    "dotenv": "^8.1.0",
+    "express": "^4.16.4",
+    "helmet": "^3.21.1",
+    "http-errors": "^1.6.3",
     "jade": "~1.11.0",
-    "morgan": "~1.9.1"
+    "lodash": "^4.17.15",
+    "mongoose": "^5.7.1",
+    "mongoose-paginate": "^5.0.3",
+    "morgan": "^1.9.1",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "redis": "^2.8.0",
+    "uuid": "^3.3.3"
   }
 }

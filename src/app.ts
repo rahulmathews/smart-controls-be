@@ -4,7 +4,7 @@ import helmet from 'helmet';
 
 import './datasources'; //Import connections here
 import router from './routes';
-// import {ErrorHandlerUtil, LoggerUtil, RedisUtil, TokenUtil} from './utils';
+import {ErrorHandlerUtil, LoggerUtil, RedisUtil, TokenUtil} from './utils';
 
  export class App{
   private app: Express;
@@ -17,10 +17,10 @@ import router from './routes';
       this.app = express();
 
       //Initialize Redis
-    //   RedisUtil.initializeRedis();
+      RedisUtil.initializeRedis();
 
       //Initialize Logger
-    //   new LoggerUtil(this.app);
+      new LoggerUtil(this.app);
 
       //Third Party middlewares
       this.app.use(express.json());
@@ -28,9 +28,9 @@ import router from './routes';
       this.app.use(helmet()); // for security purpose.  To set response headers
 
       //Middlewares for token-handlers
-    //   let tokenUtil = new TokenUtil();
+      let tokenUtil = new TokenUtil();
       //@ts-ignore
-    //   this.app.use(tokenUtil.extractAndAllocateSessionTokenFromHeader);
+      this.app.use(tokenUtil.extractAndAllocateSessionTokenFromHeader);
 
       //Initialize Router 
       this.app.use('/', router);
@@ -41,7 +41,7 @@ import router from './routes';
       });
 
       //Initialize error handler
-    //   new ErrorHandlerUtil(this.app);
+      new ErrorHandlerUtil(this.app);
       
     }
     catch(err){
