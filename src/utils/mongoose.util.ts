@@ -24,4 +24,4 @@ db.once("open", () => {
     console.log("Connection with database succeeded.");
 });
 
-export {db};
+export default {db};
